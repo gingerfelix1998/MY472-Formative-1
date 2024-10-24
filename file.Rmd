@@ -39,7 +39,7 @@ speedy_cars <- function(data = cars){
 ```{r slow_cars}
 
 # Creating a dataframe with the unemployment data
-slow_cars <- function(data = cars){
+slow_cars <- function(data_new = cars){
   "
   Function takes an input with numeric column and returns a filtered dataset
   containing values with a speed less than the mean average of the input dataset.
@@ -56,5 +56,6 @@ slow_cars <- function(data = cars){
 ```{r, echo=TRUE}
 data <- cars
 speedy_cars(data)
+data_new <- cars
 slow_cars(data)
 ```
