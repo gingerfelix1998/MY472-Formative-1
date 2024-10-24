@@ -1,0 +1,42 @@
+---
+title: "MY472: Practice Problem Set Markdown"
+author: "LSE Candidate"
+date: "Autumn Term 2024"
+output: html_document
+---
+
+```{r setup, include=FALSE} 
+# this chunk contains code that sets global options for the entire .Rmd. 
+# we use include=FALSE to suppress it from the top of the document, but it will still appear in the appendix. 
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE) # actually set the global chunk options. 
+# we set echo=FALSE to suppress code such that it by default does not appear throughout the document. 
+# note: this is different from .Rmd default
+```
+
+##### Find the faster than average cars in the cars dataset:
+
+```{r speedy_cars}
+# Install required packages:
+if(!require(dplyr)) install.packages("dplyr",repos = "http://cran.us.r-project.org")
+library(dplyr)
+
+# Creating a dataframe with the unemployment data
+speedy_cars <- function(data = cars){
+  "
+  Function takes an input with numeric column and returns a filtered dataset
+  containing values with a speed greater than the mean average of the input dataset.
+  "
+  speedy <- data %>%
+    filter(data$speed > mean(data$speed))
+  
+  return(speedy)
+  
+}
+```
+
+
+```{r, echo=TRUE}
+data <- cars
+speedy_cars(data)
+```
